@@ -25,7 +25,7 @@ public class get_Vars {
         }
         return kk;
     }
-//这里将age和sex合并起来
+
     public static String sex_age_process(String sex, int age){
         String sex1 =sex;
         int age1 =age;
