@@ -10,7 +10,7 @@ public class examt {
     public void select_var(){
 
     }
-
+//wuha wuha wuha wuha
     public static void main (String [] args){
         List<String> featureNames = new ArrayList<String>();
 //        ["GEO_SCORE_geo104_WOE","C_city_x_encoding_WOE","age_x_WOE","CDZC017_geo104_WOE","first_prod_type1_x_encoding_WOE","DiffDate_x_WOE","brand_x_encoding_WOE","sex_WOE","CDZC009_geo104_encoding_WOE","intercept"]
