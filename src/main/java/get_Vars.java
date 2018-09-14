@@ -71,19 +71,6 @@ public class get_Vars {
 
     public static Map get_var_woe_Map(){
         Map<String, String> featureNames = new HashMap();
-//        featureNames.put("TX_score","72");
-//        featureNames.put("TD_Fraud_score","9");
-//        featureNames.put("C_city_x","成都市");
-//        featureNames.put("GEO_SCORE_geo104","-999");
-//        featureNames.put("huomou_score","-999");
-//        featureNames.put("sex","女");
-//        featureNames.put("age","33");
-//        featureNames.put("match_score_mz","61.0960431891342");
-//        featureNames.put("auth_contactnum_ratio_30d_mz","0.08474576271186");
-//        featureNames.put("CDZC003_geo104","-999");
-//        featureNames.put("brand_x","OPPO".toUpperCase());
-//        featureNames.put("C_app_date","15");
-//        featureNames.put("idcard_name_in_gray_mz","0");
 
         featureNames.put("C_city_x","金华市");
         featureNames.put("brand_x","Apple".toUpperCase());
