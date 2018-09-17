@@ -1,5 +1,4 @@
 import org.python.antlr.ast.Str;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.regex.*;
@@ -53,5 +52,4 @@ public class read_file {
             e.printStackTrace();
         }
     }
-
 }
