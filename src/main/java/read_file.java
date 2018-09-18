@@ -13,7 +13,6 @@ public class read_file {
         try {
             InputStreamReader isr = new InputStreamReader(new FileInputStream("D:\\模型\\风控数据\\test_data.csv"), "GB2312");
             BufferedReader reader = new BufferedReader(isr);
-//            BufferedReader reader = new BufferedReader(new FileReader("D:\\模型\\风控数据\\test_data.csv"));//换成你的文件名
             String header = reader.readLine();//第一行信息，为标题信息，不用，如果需要，注释掉
             System.out.println("-----------------header---------------------");
             System.out.println(header);
@@ -22,7 +21,6 @@ public class read_file {
             while((j < 100 && (line=reader.readLine())!=null)){
                 j++;
                 String [] item = line.split("，");//CSV格式文件为逗号分隔符文件，这里根据逗号切分
-//                String item[] = line.split("，");//CSV格式文件为逗号分隔符文件，这里根据逗号切分
                 String last = item[item.length-1];//这就是你要的数据了
 
                 String arg1 = "\"[^男|^女]*?\"";
@@ -88,8 +86,6 @@ public class read_file {
                     System.out.println("用户： "+last_[1]+"  最终得分: "+ClassificationModel__.get_score(kkk)+" 对比分： "+last_[196]);
 
                 }
-//                System.out.print("\n");
-//                System.out.println("字符串长度"+last_.length);
             }
         } catch (Exception e) {
             e.printStackTrace();

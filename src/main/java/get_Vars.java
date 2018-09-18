@@ -81,16 +81,11 @@ public class get_Vars {
         featureNames.remove("age");
 
         Map br_encoding_map = br_encoding_dict_to_map.get_br_encoding_map();
-//        System.out.println(br_encoding_map.keySet());
 
         Map var_cutoff_M = var_cutoff_dict_to_map.get_var_cutoff_M();
-//        System.out.println(var_cutoff_M.keySet());
 
         Map var_WOE_M = var_WOE_dict_to_map.get_var_woe_M();
-//        System.out.println(var_WOE_M.get("sex").toString());
-//        System.out.println("------------------转化后----------------------------");
-//        Map sex_woe_dict_M = JSON.parseObject(var_WOE_M.get("sex").toString());
-//        System.out.println(sex_woe_dict_M.keySet());
+
         Map result_M = new HashMap();
         for( Map.Entry<String, String> entry: featureNames.entrySet()){
             float [] special_attrib_ = {};
@@ -105,8 +100,6 @@ public class get_Vars {
             }else if(br_encoding_map.containsKey(entry.getKey())){
                 Map new_Map = (Map) br_encoding_map.get(entry.getKey());
                 if(new_Map.containsKey(entry.getValue())){
-//                if(new_Map.containsKey(5)){
-//                    result_M.put(entry.getKey()+"_WOE",new_Map.get(entry.getValue()));
                     float [] cutOffPoints_ = (float[]) var_cutoff_M.get(entry.getKey() + "_encoding");
 
                     for (float item:cutOffPoints_
@@ -151,9 +144,7 @@ public class get_Vars {
             }else{
                 System.out.println(entry.getKey()+":"+entry.getValue()+"pppppppppppp在各个字典找不到 找不到key");
             }
-
         }
-
         return result_M;
     }
 

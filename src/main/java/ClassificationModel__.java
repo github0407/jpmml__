@@ -117,15 +117,9 @@ public class ClassificationModel__ {
         // 构建待预测数据
         Map<FieldName, Number> waitPreSample = new HashMap<>();
 
-        //抽取测试数据并woe处理
-//        waitPreSample=process_test_data（featureNames）；
-
-
         Map get_var_woe_map = new HashMap();
 
         get_var_woe_map=featureNames_;
-
-//        Map get_var_woe_map = get_Vars.get_var_woe_Map(featureNames__);
 
         waitPreSample.put(new FieldName("TX_score_WOE"), ((Number)get_var_woe_map.get("TX_score_WOE")).floatValue());
         waitPreSample.put(new FieldName("TD_Fraud_score_WOE"), ((Number)get_var_woe_map.get("TD_Fraud_score_WOE")).floatValue());
@@ -141,24 +135,10 @@ public class ClassificationModel__ {
         waitPreSample.put(new FieldName("idcard_name_in_gray_mz_WOE"), ((Number)get_var_woe_map.get("idcard_name_in_gray_mz_WOE")).floatValue());
         waitPreSample.put(new FieldName("intercept"), 1);
 
-
-//        waitPreSample.put(new FieldName("GEO_SCORE_geo104_WOE"), -0.038563617542414795);
-//        waitPreSample.put(new FieldName("C_city_x_encoding_WOE"), 0.8471015380646553	);
-//        waitPreSample.put(new FieldName("age_x_WOE"), -0.017436831988110593	);
-//        waitPreSample.put(new FieldName("CDZC017_geo104_WOE"), 0.5661678942774413	);
-//        waitPreSample.put(new FieldName("first_prod_type1_x_encoding_WOE"), 0.14976207438885705);
-//        waitPreSample.put(new FieldName("DiffDate_x_WOE"), 0.22009498213271167);
-//        waitPreSample.put(new FieldName("brand_x_encoding_WOE"), -1.119865974395296);
-//        waitPreSample.put(new FieldName("sex_WOE"), -0.10802302261482663);
-//        waitPreSample.put(new FieldName("CDZC009_geo104_encoding_WOE"), -0.6019989565734515	);
-//        waitPreSample.put(new FieldName("intercept"), 1);
-
         int BasePoint = 600;
         int PDO = 50;
         double baseOdds = 0.25;
         double prob = (double) Double.valueOf(String.valueOf(clf.predictProba(waitPreSample).get("1")));
-
-//        prob=0.1583626;
 
         double score = Prob2Score( prob, BasePoint, PDO, baseOdds);
 
