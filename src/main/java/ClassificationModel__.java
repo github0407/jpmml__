@@ -107,7 +107,7 @@ public class ClassificationModel__ {
         return score;
     }
 
-    public static void main(String[] args) {
+    public static double get_score(Map<String, String> featureNames_){
         ClassificationModel__ clf = new ClassificationModel__("C:\\Users\\juzi\\Desktop\\logist1.pmml");
 
         List<String> featureNames = clf.getFeatureNames();
@@ -120,7 +120,12 @@ public class ClassificationModel__ {
         //抽取测试数据并woe处理
 //        waitPreSample=process_test_data（featureNames）；
 
-        Map get_var_woe_map = get_Vars.get_var_woe_Map();
+
+        Map get_var_woe_map = new HashMap();
+
+        get_var_woe_map=featureNames_;
+
+//        Map get_var_woe_map = get_Vars.get_var_woe_Map(featureNames__);
 
         waitPreSample.put(new FieldName("TX_score_WOE"), ((Number)get_var_woe_map.get("TX_score_WOE")).floatValue());
         waitPreSample.put(new FieldName("TD_Fraud_score_WOE"), ((Number)get_var_woe_map.get("TD_Fraud_score_WOE")).floatValue());
@@ -157,16 +162,22 @@ public class ClassificationModel__ {
 
         double score = Prob2Score( prob, BasePoint, PDO, baseOdds);
 
-        System.out.println("---------------------------------------------------------------------------------------------");
-        for (Map.Entry<FieldName, Number> obj:waitPreSample.entrySet()
-             ) {
-            System.out.println("变量名："+obj.getKey()+"    woe值："+obj.getValue());
-        }
-        System.out.println("---------------------------------------------------------------------------------------------");
-        System.out.println("prob:"+prob);
-        System.out.println("---------------------------------------------------------------------------------------------");
+        return score;
+    }
 
-        System.out.println("得分：" + score);
+    public static void main(String[] args) {
+
+//        System.out.println("---------------------------------------------------------------------------------------------");
+//        for (Map.Entry<FieldName, Number> obj:waitPreSample.entrySet()
+//             ) {
+//            System.out.println("变量名："+obj.getKey()+"    woe值："+obj.getValue());
+//        }
+//        System.out.println("---------------------------------------------------------------------------------------------");
+//        System.out.println("prob:"+prob);
+//        System.out.println("---------------------------------------------------------------------------------------------");
+
+//        double score = get_score();
+//        System.out.println("得分：" + score);
 
     }
 }

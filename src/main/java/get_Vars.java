@@ -69,30 +69,16 @@ public class get_Vars {
         return sex_age;
     }
 
-    public static Map get_var_woe_Map(){
+    public static Map get_var_woe_Map(Map<String, String> featureNames_){
         Map<String, String> featureNames = new HashMap();
 
-        featureNames.put("C_city_x","金华市");
-        featureNames.put("brand_x","Apple".toUpperCase());
-        featureNames.put("age","26");
-        featureNames.put("huomou_score","641");
-        featureNames.put("TX_score","56");
-        featureNames.put("TD_Fraud_score","7");
-        featureNames.put("sex","男");
-        featureNames.put("match_score_mz","90.6425043547156");
-        featureNames.put("auth_contactnum_ratio_30d_mz","0.05");
-        featureNames.put("CDZC003_geo104","2");
-        featureNames.put("GEO_SCORE_geo104","437");
-        featureNames.put("idcard_name_in_gray_mz","0");
-        featureNames.put("C_app_date","16");
+        featureNames=featureNames_;
 
         String sex_age = sex_age_process(featureNames.get("sex"), Integer.valueOf(featureNames.get("age")));
 
         featureNames.put("sex_age",sex_age);
         featureNames.remove("sex");
         featureNames.remove("age");
-
-
 
         Map br_encoding_map = br_encoding_dict_to_map.get_br_encoding_map();
 //        System.out.println(br_encoding_map.keySet());
@@ -172,11 +158,24 @@ public class get_Vars {
     }
 
     public static void main(String [] args){
-        Map kkk = get_var_woe_Map();
+
+        Map<String, String> featureNames = new HashMap();
+        featureNames.put("C_city_x","金华市");
+        featureNames.put("brand_x","Apple".toUpperCase());
+        featureNames.put("age","26");
+        featureNames.put("huomou_score","641");
+        featureNames.put("TX_score","56");
+        featureNames.put("TD_Fraud_score","7");
+        featureNames.put("sex","男");
+        featureNames.put("match_score_mz","90.6425043547156");
+        featureNames.put("auth_contactnum_ratio_30d_mz","0.05");
+        featureNames.put("CDZC003_geo104","2");
+        featureNames.put("GEO_SCORE_geo104","437");
+        featureNames.put("idcard_name_in_gray_mz","0");
+        featureNames.put("C_app_date","16");
+
+        Map kkk = get_var_woe_Map(featureNames);
         System.out.println(kkk);
-
     }
-
-
 
 }
